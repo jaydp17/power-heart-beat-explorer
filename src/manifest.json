@@ -1,6 +1,6 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
+  "name": "Power HeartBeat Explorer",
+  "short_name": "PHB Explorer",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
