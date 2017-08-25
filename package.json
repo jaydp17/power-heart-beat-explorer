@@ -8,7 +8,8 @@
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
-    "test": "eslint src && preact test"
+    "test": "eslint src && preact test",
+    "prettier": "prettier --single-quote --trailing-comma all --print-width 120 --write"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
@@ -19,6 +20,7 @@
     "if-env": "^1.0.0",
     "node-sass": "^4.5.3",
     "preact-cli": "^1.4.1",
+    "prettier": "1.5.3",
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
