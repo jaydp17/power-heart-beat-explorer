@@ -1,10 +1,19 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.scss';
 
 export default class Profile extends Component {
   state = {
     time: Date.now(),
     count: 10,
+  };
+
+  // update the current time
+  updateTime = () => {
+    this.setState({ time: Date.now() });
+  };
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
   };
 
   // gets called when this route is navigated to
@@ -17,15 +26,6 @@ export default class Profile extends Component {
   componentWillUnmount() {
     clearInterval(this.timer);
   }
-
-  // update the current time
-  updateTime = () => {
-    this.setState({ time: Date.now() });
-  };
-
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
 
   // Note: `user` comes from the URL, courtesy of our router
   render({ user }, { time, count }) {
