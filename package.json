@@ -22,8 +22,10 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "chart.js": "2.6.0",
     "preact": "^8.2.4",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.7"
+    "preact-router": "^2.5.7",
+    "react-chartjs-2": "2.6.1"
   }
 }
