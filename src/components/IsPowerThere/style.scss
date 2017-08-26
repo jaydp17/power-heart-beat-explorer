@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5em;
+}
+
+.loadingImg {
+  width: 100%;
+}
+
+.statusText {
+  font-size: 200px;
+}
+
+.loadingText {
+  font-size: 100px;
+}
