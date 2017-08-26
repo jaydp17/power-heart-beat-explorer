@@ -1,3 +1,5 @@
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+
 require('dotenv').config();
 
 /**
@@ -13,6 +15,7 @@ export default function(config, env, helpers) {
 
   // ignore locale in moment.js
   config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
+  config.plugins.push(new LodashModuleReplacementPlugin());
 
   // inject env vars through DefinePlugin
   const [{ plugin: definePlugin }] = helpers.getPluginsByName(config, 'DefinePlugin');
@@ -21,4 +24,9 @@ export default function(config, env, helpers) {
   const isProd = process.env.NODE_ENV === 'production';
   const dbPrefix = isProd ? 'powerData' : 'dev-powerData';
   definePlugin.definitions['process.env.FIREBASE_DB_PREFIX'] = `"${dbPrefix}"`;
+
+  // add lodash webpack plugin
+  const { rule: babelLoader } = helpers.getLoadersByName(config, 'babel-loader')[0];
+  const babelConfig = babelLoader.options;
+  babelConfig.plugins.push('lodash');
 }

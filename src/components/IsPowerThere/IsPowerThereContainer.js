@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { values } from 'lodash';
 
 import firebase from '../../lib/firebase';
 import { getKeysForPastMinutes } from '../../lib/utils';
@@ -38,6 +39,7 @@ export default class IsPowerThereContainer extends Component {
   hasPower = () => {
     const { powerData } = this.state;
     if (!this.hasAllKeys(powerData)) return false;
+    return values(powerData).every(dataPoint => dataPoint > 0);
   };
 
   componentDidMount() {
@@ -48,8 +50,8 @@ export default class IsPowerThereContainer extends Component {
     }
   }
 
-  render(props, { isLoading, powerData }) {
-    const hasPower = false;
+  render(props, { isLoading }) {
+    const hasPower = this.hasPower();
     return <IsPowerThere isLoading={isLoading} hasPower={hasPower} />;
   }
 }
