@@ -12,6 +12,12 @@
 
 .statusText {
   font-size: 200px;
+  text-align: center;
+}
+
+.statusTextOff {
+  @extend .statusText;
+  color: #8799a7;
 }
 
 .loadingText {

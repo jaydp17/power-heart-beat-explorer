@@ -1,5 +1,6 @@
 import { h } from 'preact';
 
+import BodyColor from '../../components/BodyColor';
 import style from './style.scss';
 
 export default ({ isLoading, hasPower }) => {
@@ -27,14 +28,16 @@ export default ({ isLoading, hasPower }) => {
     ? null
     : <div>
         <img src={`https://twemoji.maxcdn.com/2/svg/${currentEmoji}.svg`} height="350" />
-        <div class={style.statusText}>
+        <div class={hasPower ? style.statusText : style.statusTextOff}>
           {currentText}
         </div>
       </div>;
 
   return (
-    <div class={style.container}>
-      {isLoading ? loadingView : actualView}
-    </div>
+    <BodyColor isDark={!isLoading && !hasPower}>
+      <div class={style.container}>
+        {isLoading ? loadingView : actualView}
+      </div>
+    </BodyColor>
   );
 };
