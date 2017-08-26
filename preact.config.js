@@ -17,4 +17,8 @@ export default function(config, env, helpers) {
   // inject env vars through DefinePlugin
   const [{ plugin: definePlugin }] = helpers.getPluginsByName(config, 'DefinePlugin');
   definePlugin.definitions['process.env.FIREBASE_API_KEY'] = `"${process.env.FIREBASE_API_KEY}"`;
+
+  const isProd = process.env.NODE_ENV === 'production';
+  const dbPrefix = isProd ? 'powerData' : 'dev-powerData';
+  definePlugin.definitions['process.env.FIREBASE_DB_PREFIX'] = `"${dbPrefix}"`;
 }
