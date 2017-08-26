@@ -1,11 +1,11 @@
 import { h } from 'preact';
-import { Link } from 'preact-router/match';
+// import { Link } from 'preact-router/match';
 import style from './style.scss';
 
 export default () =>
   <header class={style.header}>
     <h1>Power HeartBeat Explorer</h1>
-    <nav>
+    {/* <nav>
       <Link activeClassName={style.active} href="/">
         Home
       </Link>
@@ -15,5 +15,5 @@ export default () =>
       <Link activeClassName={style.active} href="/profile/john">
         John
       </Link>
-    </nav>
+    </nav> */}
   </header>;
