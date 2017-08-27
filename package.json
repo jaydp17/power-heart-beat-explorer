@@ -12,7 +12,11 @@
     "test": "eslint src && preact test",
     "prettier": "prettier --single-quote --trailing-comma all --print-idth 120 --write",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prefirebase:json": "preact build && preact serve --server config --dest hosting.json",
+    "firebase:json": "node deploy/generate-firebase-json.js",
+    "predeploy:prod": "yarn firebase:json",
+    "deploy:prod": "firebase deploy"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
@@ -24,6 +28,7 @@
     "eslint-config-prettier": "2.3.0",
     "eslint-config-synacor": "^1.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "firebase-tools": "3.9.2",
     "if-env": "^1.0.0",
     "node-sass": "^4.5.3",
     "preact-cli": "^1.4.1",
